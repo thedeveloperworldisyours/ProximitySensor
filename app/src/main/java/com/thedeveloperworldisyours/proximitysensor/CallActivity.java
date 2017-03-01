@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,8 @@ public class CallActivity extends AppCompatActivity {
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
     private RelativeLayout mRelativeLayout;
+    private ImageButton mHungUp;
+    private ImageButton mHookOff;
 
     private static final String TAG = "MainActivity";
 
@@ -30,6 +34,8 @@ public class CallActivity extends AppCompatActivity {
         setContentView(R.layout.call_activity);
 
         mRelativeLayout = (RelativeLayout) findViewById(R.id.call_activity_relative_layout);
+        mHookOff = (ImageButton) findViewById(R.id.call_activity_hook_off);
+        mHungUp = (ImageButton) findViewById(R.id.call_activity_hung_up);
 
         overridePendingTransition(R.anim.right_go_in, R.anim.right_go_out);
 
@@ -41,6 +47,8 @@ public class CallActivity extends AppCompatActivity {
 
     public void activateSensor(View v) {
         customSnackBar(getString(R.string.call_activity_proximity_on), R.color.colorGreen);
+        mHookOff.setVisibility(View.GONE);
+        mHungUp.setVisibility(View.VISIBLE);
         if (mWakeLock == null) {
             mWakeLock = mPowerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "incall");
         }
@@ -53,6 +61,8 @@ public class CallActivity extends AppCompatActivity {
     }
 
     public void deactivateSensor(View v) {
+        mHookOff.setVisibility(View.VISIBLE);
+        mHungUp.setVisibility(View.GONE);
         customSnackBar(getString(R.string.call_activity_proximity_off), R.color.colorAccent);
         if (mWakeLock != null && mWakeLock.isHeld()) {
             mWakeLock.release();
