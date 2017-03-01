@@ -7,4 +7,7 @@
     <string name="proximity_sensor_activity_near">Near</string>
     <string name="proximity_sensor_activity_far">Far</string>
 
+    <string name="call_activity_proximity_off">Proximity Off</string>
+    <string name="call_activity_proximity_on">Proximity On</string>
+
 </resources>

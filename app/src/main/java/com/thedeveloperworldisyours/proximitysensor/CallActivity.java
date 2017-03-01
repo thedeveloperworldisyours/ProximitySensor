@@ -2,28 +2,27 @@ package com.thedeveloperworldisyours.proximitysensor;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.PowerManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class CallActivity extends AppCompatActivity implements SensorEventListener {
+public class CallActivity extends AppCompatActivity {
 
-    private SensorManager mSensorManager;
-    private Sensor mProximity;
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
     private RelativeLayout mRelativeLayout;
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,57 +36,32 @@ public class CallActivity extends AppCompatActivity implements SensorEventListen
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-
         mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mSensorManager.unregisterListener(this);
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-                if (event.values[0] >= -4 && event.values[0] <= 4) {
-                    // near
-                    customSnackBar(getString(R.string.proximity_sensor_activity_near), R.color.colorGreen);
-                } else {
-                    // far
-                    customSnackBar(getString(R.string.proximity_sensor_activity_far), R.color.colorAccent);
-                }
-            }
+    public void activateSensor(View v) {
+        customSnackBar(getString(R.string.call_activity_proximity_on), R.color.colorGreen);
+        if (mWakeLock == null) {
+            mWakeLock = mPowerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "incall");
+        }
+        if (!mWakeLock.isHeld()) {
+            Log.d(TAG, "New call active : acquiring incall (CPU only) wake lock");
+            mWakeLock.acquire();
+        } else {
+            Log.d(TAG, "New call active while incall (CPU only) wake lock already active");
         }
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+    public void deactivateSensor(View v) {
+        customSnackBar(getString(R.string.call_activity_proximity_off), R.color.colorAccent);
+        if (mWakeLock != null && mWakeLock.isHeld()) {
+            mWakeLock.release();
+            Log.d(TAG, "Last call ended: releasing incall (CPU only) wake lock");
+        } else {
+            Log.d(TAG, "Last call ended: no incall (CPU only) wake lock were held");
+        }
     }
 
-
-    public void turnOffScreen() {
-
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "tag");
-        mWakeLock.acquire();
-
-    }
-
-    public void turnOnScreen() {
-
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "tag");
-        mWakeLock.acquire();
-    }
 
     @Override
     public void onBackPressed() {
