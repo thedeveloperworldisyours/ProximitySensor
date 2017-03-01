@@ -38,10 +38,6 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void back(View view) {
-        finishMyActivity();
-    }
-
     @Override
     public void onBackPressed() {
         finishMyActivity();
