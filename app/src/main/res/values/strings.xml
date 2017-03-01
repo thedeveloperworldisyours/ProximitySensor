@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">ProximitySensor</string>
 
-    <string name="activity_main_near">Near</string>
-    <string name="activity_main_far">Far</string>
+    <string name="main_activity_proximity_sensor">Proximity Sensor</string>
+    <string name="main_activity_call">Call</string>
+
+    <string name="proximity_sensor_activity_near">Near</string>
+    <string name="proximity_sensor_activity_far">Far</string>
+
 </resources>

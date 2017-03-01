@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.thedeveloperworldisyours.proximitysensor.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/thedeveloperworldisyours" />
+
+    <Button
+        android:id="@+id/main_activity_proximity_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/menu_activity_margin_top"
+        android:onClick="goToProximitySensor"
+        android:text="@string/main_activity_proximity_sensor"
+        android:textColor="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/main_activity_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_activity_proximity_sensor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:onClick="goToCall"
+        android:text="@string/main_activity_call"
+        android:textColor="@color/colorPrimary" />
+
+</RelativeLayout>

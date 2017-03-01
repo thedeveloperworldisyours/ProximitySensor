@@ -4,7 +4,8 @@
     android:id="@+id/activity_main_relative_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.thedeveloperworldisyours.proximitysensor.MainActivity">
+    android:background="@color/colorBackground"
+    tools:context="com.thedeveloperworldisyours.proximitysensor.ProximitySensorActivity">
 
     <ImageView
         android:layout_width="match_parent"
