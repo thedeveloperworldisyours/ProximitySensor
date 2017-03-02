@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProximitySensor</string>
+    <string name="app_name">Proximity Sensor</string>
 
     <string name="main_activity_proximity_sensor">Proximity Sensor</string>
     <string name="main_activity_call">Call</string>

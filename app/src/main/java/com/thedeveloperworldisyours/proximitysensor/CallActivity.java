@@ -2,7 +2,6 @@ package com.thedeveloperworldisyours.proximitysensor;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.hardware.SensorEventListener;
 import android.os.Build;
 import android.os.PowerManager;
 import android.support.design.widget.Snackbar;
@@ -12,11 +11,9 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CallActivity extends AppCompatActivity {
 

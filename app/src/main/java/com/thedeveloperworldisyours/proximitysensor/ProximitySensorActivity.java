@@ -22,6 +22,8 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
     private Sensor mProximity;
 
     RelativeLayout mRelativeLayout;
+    private static final int SENSOR_SENSITIVITY = 4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-            if (event.values[0] >= -4 && event.values[0] <= 4) {
+            if (event.values[0] >= -SENSOR_SENSITIVITY && event.values[0] <= SENSOR_SENSITIVITY) {
                 // near
                 customSnackBar(getString(R.string.proximity_sensor_activity_near), R.color.colorGreen);
             } else {

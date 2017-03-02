@@ -7,4 +7,5 @@
     <dimen name="menu_activity_text_size">30sp</dimen>
 
     <dimen name="call_activity_button_call_size">68dp</dimen>
+    <dimen name="call_activity_margin_button_call">40dp</dimen>
 </resources>
