@@ -46,6 +46,7 @@ public class CallActivity extends AppCompatActivity {
         customSnackBar(getString(R.string.call_activity_proximity_on), R.color.colorGreen);
         mHookOff.setVisibility(View.GONE);
         mHungUp.setVisibility(View.VISIBLE);
+        mRelativeLayout.setBackgroundResource(R.drawable.thewordis);
         if (mWakeLock == null) {
             mWakeLock = mPowerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "incall");
         }
@@ -60,6 +61,7 @@ public class CallActivity extends AppCompatActivity {
     public void deactivateSensor(View v) {
         mHookOff.setVisibility(View.VISIBLE);
         mHungUp.setVisibility(View.GONE);
+        mRelativeLayout.setBackgroundResource(android.R.color.white);
         customSnackBar(getString(R.string.call_activity_proximity_off), R.color.colorAccent);
         if (mWakeLock != null && mWakeLock.isHeld()) {
             mWakeLock.release();
