@@ -4,7 +4,7 @@ Proximity Sensor Android, you can see how to user proximity sensor in:
 + A call for to desconect the screen.
 + To show a message.
 
-[Menu][menu] | [LinearLayout][menu] | [Call][call] | [Message][proximity]
+[Menu][menu] | [Call][call] | [Message][proximity]
 --- | --- | ---
 ![screenshot_menu] | ![screenshot_call] | ![screenshot_proximity]
 # About
