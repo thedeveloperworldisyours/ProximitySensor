@@ -82,6 +82,6 @@ License
 [proximity]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/app/src/main/java/com/thedeveloperworldisyours/proximitysensor/ProximitySensorActivity.java
 
 [screenshot_menu]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/menu.png
-[screenshot_call]: https://github.com/CabezasGonzalezJavier/AddTextViewButton/blob/master/Screenshot_linear_layout.png
-[screenshot_proximity]: https://github.com/CabezasGonzalezJavier/AddTextViewButton/blob/master/Screenshot_relative_layout.png
+[screenshot_call]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/call.gif
+[screenshot_proximity]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/proximitySensor.gif
 
