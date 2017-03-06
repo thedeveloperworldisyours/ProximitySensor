@@ -81,7 +81,7 @@ License
 [call]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/app/src/main/java/com/thedeveloperworldisyours/proximitysensor/CallActivity.java
 [proximity]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/app/src/main/java/com/thedeveloperworldisyours/proximitysensor/ProximitySensorActivity.java
 
-[screenshot_menu]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/menu.png
+[screenshot_menu]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/menu_proximity_sensor.gif
 [screenshot_call]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/call.gif
 [screenshot_proximity]: https://github.com/CabezasGonzalezJavier/ProximitySensor/blob/master/proximitySensor.gif
 
