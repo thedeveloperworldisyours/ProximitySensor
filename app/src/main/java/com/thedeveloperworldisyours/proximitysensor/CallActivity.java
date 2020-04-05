@@ -3,10 +3,8 @@ package com.thedeveloperworldisyours.proximitysensor;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.os.PowerManager;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -15,34 +13,36 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+
 public class CallActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     private PowerManager mPowerManager;
     private PowerManager.WakeLock mWakeLock;
     private RelativeLayout mRelativeLayout;
     private ImageButton mHungUp;
     private ImageButton mHookOff;
 
-    private static final String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.call_activity);
 
-        mRelativeLayout = (RelativeLayout) findViewById(R.id.call_activity_relative_layout);
-        mHookOff = (ImageButton) findViewById(R.id.call_activity_hook_off);
-        mHungUp = (ImageButton) findViewById(R.id.call_activity_hung_up);
+        mRelativeLayout = findViewById(R.id.call_activity_relative_layout);
+        mHookOff = findViewById(R.id.call_activity_hook_off);
+        mHungUp = findViewById(R.id.call_activity_hung_up);
 
         overridePendingTransition(R.anim.right_go_in, R.anim.right_go_out);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
     }
 
-    public void activateSensor(View v) {
+    public void activateSensor() {
         customSnackBar(getString(R.string.call_activity_proximity_on), R.color.colorGreen);
         mHookOff.setVisibility(View.GONE);
         mHungUp.setVisibility(View.VISIBLE);
@@ -58,7 +58,7 @@ public class CallActivity extends AppCompatActivity {
         }
     }
 
-    public void deactivateSensor(View v) {
+    public void deactivateSensor() {
         mHookOff.setVisibility(View.VISIBLE);
         mHungUp.setVisibility(View.GONE);
         mRelativeLayout.setBackgroundResource(android.R.color.white);
@@ -72,10 +72,7 @@ public class CallActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        finishMyActivity();
-    }
+
 
     public void finishMyActivity() {
         finish();
@@ -100,7 +97,7 @@ public class CallActivity extends AppCompatActivity {
         mView.setBackgroundResource(color);
 
         // get textview inside snackbar view
-        TextView textview = (TextView) mView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textview = mView.findViewById(com.google.android.material.R.id.snackbar_text);
 
         textview.setTypeface(Typeface.DEFAULT_BOLD);
 

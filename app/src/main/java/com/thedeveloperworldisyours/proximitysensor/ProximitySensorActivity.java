@@ -7,8 +7,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -16,14 +14,16 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+
 public class ProximitySensorActivity extends AppCompatActivity implements SensorEventListener {
 
+    private static final int SENSOR_SENSITIVITY = 4;
+    RelativeLayout mRelativeLayout;
     private SensorManager mSensorManager;
     private Sensor mProximity;
-
-    RelativeLayout mRelativeLayout;
-    private static final int SENSOR_SENSITIVITY = 4;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
         setContentView(R.layout.proximity_sensor_activity);
         overridePendingTransition(R.anim.right_go_in, R.anim.right_go_out);
 
-        mRelativeLayout = (RelativeLayout) findViewById(R.id.activity_main_relative_layout);
+        mRelativeLayout = findViewById(R.id.activity_main_relative_layout);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mProximity = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -52,10 +52,8 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finishMyActivity();
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            finishMyActivity();
         }
         return true;
     }
@@ -98,19 +96,15 @@ public class ProximitySensorActivity extends AppCompatActivity implements Sensor
         mView.setBackgroundResource(color);
 
         // get textview inside snackbar view
-        TextView textview = (TextView) mView.findViewById(android.support.design.R.id.snackbar_text);
+        TextView textview = mView.findViewById(com.google.android.material.R.id.snackbar_text);
 
         textview.setTypeface(Typeface.DEFAULT_BOLD);
 
         // set text to center
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-
             textview.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-
         } else {
-
             textview.setGravity(Gravity.CENTER_HORIZONTAL);
-
         }
 
         // show the snackbar

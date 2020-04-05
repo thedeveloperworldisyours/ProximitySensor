@@ -15,11 +15,10 @@ public class FontCache {
 
     public static Typeface getTypeface(String name, Context context) {
         Typeface tf = fontCache.get(name);
-        if(tf == null) {
+        if (tf == null) {
             try {
                 tf = Typeface.createFromAsset(context.getAssets(), name);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 return null;
             }
             fontCache.put(name, tf);

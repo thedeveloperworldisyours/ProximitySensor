@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Desktop-ProximitySensor.iml" filepath="$PROJECT_DIR$/Desktop-ProximitySensor.iml" group="ProximitySensor" />
       <module fileurl="file://$PROJECT_DIR$/ProximitySensor.iml" filepath="$PROJECT_DIR$/ProximitySensor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ProximitySensor-app.iml" filepath="$PROJECT_DIR$/app/ProximitySensor-app.iml" group="ProximitySensor/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
