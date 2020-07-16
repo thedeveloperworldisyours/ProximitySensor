@@ -1,9 +1,10 @@
 package com.thedeveloperworldisyours.proximitysensor;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,12 +15,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToProximitySensor(View view) {
-        Intent intent = new Intent(this, ProximitySensorActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, ProximitySensorActivity.class));
     }
 
     public void goToCall(View view) {
-        Intent intent = new Intent(this, CallActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, CallActivity.class));
     }
 }

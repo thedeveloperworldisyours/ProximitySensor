@@ -6,19 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     tools:context="com.thedeveloperworldisyours.proximitysensor.CallActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/theworldisyours" />
+
     <ImageButton
         android:id="@+id/call_activity_hook_off"
         android:layout_width="@dimen/call_activity_button_call_size"
         android:layout_height="@dimen/call_activity_button_call_size"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/hook_off"
         android:layout_marginBottom="@dimen/call_activity_margin_button_call"
+        android:background="@drawable/hook_off"
         android:onClick="activateSensor"
         android:src="@drawable/ic_call_hook_off" />
 
@@ -31,5 +27,11 @@
         android:onClick="deactivateSensor"
         android:src="@drawable/ic_call_hang_up"
         android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/theworldisyours" />
 
 </RelativeLayout>
